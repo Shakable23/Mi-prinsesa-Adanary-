@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Adanary, Mi Amor Eterno ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+        }
+
+        /* Efecto de partículas de corazón flotantes */
+        .heart-particle {
+            position: fixed;
+            font-size: 20px;
+            animation: float 15s infinite linear;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Sección Hero con foto de fondo */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(rgba(26, 26, 46, 0.7), rgba(22, 33, 62, 0.8)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD...');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(233, 69, 96, 0.3) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #ff9ff3, #54a0ff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 5s ease infinite;
+            text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            line-height: 1.6;
+            opacity: 0.9;
+            animation: fadeInUp 2s ease;
+            margin: 0 auto;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            animation: bounce 2s infinite;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sección de Razones */
+        .reasons-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #ff6b6b;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .reason-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reason-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .reason-card:hover::before {
+            left: 100%;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(233, 69, 96, 0.3);
+            border-color: #ff6b6b;
+        }
+
+        .reason-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .reason-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #feca57;
+        }
+
+        .reason-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Sección de Mensaje Especial */
+        .special-message {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.1) 0%, rgba(84, 160, 255, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .love-letter {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 60px;
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            box-shadow: 0 0 50px rgba(233, 69, 96, 0.2);
+            transform-style: preserve-3d;
+            animation: floatLetter 6s ease-in-out infinite;
+        }
+
+        @keyframes floatLetter {
+            0%, 100% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-20px) rotateX(2deg); }
+        }
+
+        .love-letter h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #ff9ff3;
+        }
+
+        .love-letter p {
+            font-size: 1.2rem;
+            line-height: 2;
+            margin-bottom: 20px;
+            text-align: left;
+            text-indent: 30px;
+        }
+
+        /* Sección de Promesas */
+        .promises-section {
+            padding: 100px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .promise-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border-left: 4px solid #ff6b6b;
+            transition: all 0.3s ease;
+        }
+
+        .promise-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(10px);
+            border-left-width: 8px;
+        }
+
+        .promise-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-right: 30px;
+            opacity: 0.5;
+        }
+
+        .promise-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+
+        /* Galería de Momentos con fotos reales */
+        .gallery-section {
+            padding: 100px 20px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            aspect-ratio: 3/4;
+            background: #000;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.03) rotate(1deg);
+            box-shadow: 0 20px 40px rgba(233, 69, 96, 0.4);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 30px 20px 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover .photo-caption {
+            transform: translateY(0);
+        }
+
+        .photo-caption p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: #fff;
+        }
+
+        /* Botón Interactivo Final */
+        .final-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(233, 69, 96, 0.3) 0%, transparent 70%);
+        }
+
+        .love-button {
+            display: inline-block;
+            padding: 20px 60px;
+            font-size: 1.5rem;
+            font-family: 'Dancing Script', cursive;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(238, 90, 111, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .love-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(238, 90, 111, 0.6);
+        }
+
+        .love-button:active {
+            transform: translateY(0) scale(0.95);
+        }
+
+        /* Modal de Sorpresa */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 60px;
+            border-radius: 30px;
+            text-align: center;
+            max-width: 600px;
+            border: 2px solid #ff6b6b;
+            box-shadow: 0 0 100px rgba(255, 107, 107, 0.5);
+            animation: scaleIn 0.5s;
+            margin: 20px;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-content h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ff9ff3;
+        }
+
+        .modal-content p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .close-modal {
+            background: #ff6b6b;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            background: #ee5a6f;
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .section-title { font-size: 2.5rem; }
+            .love-letter { padding: 30px; }
+            .love-letter h2 { font-size: 2rem; }
+            .reasons-grid { grid-template-columns: 1fr; }
+            .photo-grid { grid-template-columns: 1fr; }
+            .promise-item { flex-direction: column; text-align: center; }
+            .promise-number { margin-right: 0; margin-bottom: 15px; }
+        }
+
+        /* Animación de entrada */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Efecto de brillo especial para Adanary */
+        .special-glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b; }
+            to { text-shadow: 0 0 20px #ff9ff3, 0 0 30px #ff9ff3; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Partículas de corazón flotantes -->
+    <div id="hearts-container"></div>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Adanary, Mi Amor Eterno</h1>
+            <p>Esta página es solo para ti, para recordarte cada día lo especial que eres y cuánto significas para mí. Eres mi todo, mi razón de sonreír.</p>
+            <div class="scroll-indicator" onclick="document.querySelector('.reasons-section').scrollIntoView({behavior: 'smooth'})">⬇️</div>
+        </div>
+    </section>
+
+    <!-- Razones por las que te amo -->
+    <section class="reasons-section">
+        <h2 class="section-title fade-in">Razones por las que amo a Adanary</h2>
+        <div class="reasons-grid">
+            <div class="reason-card fade-in">
+                <span class="reason-icon">✨</span>
+                <h3>Tu Sonrisa</h3>
+                <p>Ilumina mis días más oscuros y me hace sentir que todo es posible cuando estás cerca. Esa sonrisa me enamoró desde el primer día.</p>
+            </div>
+            <div class="reason-card fade-in">
+                <span class="reason-icon">🤗</span>
+                <h3>Tus Abrazos</h3>
+                <p>Son mi lugar favorito en el mundo, donde encuentro paz, seguridad y todo el amor que necesito. Como ese abrazo en el elevador.</p>
+            </div>
+            <div class="reason-card fade-in">
+                <span class="reason-icon">🧠</span>
+                <h3>Tu Inteligencia</h3>
+                <p>La forma en que ves el mundo y me inspiras a ser mejor cada día me enamora más. Adanary, eres increíblemente especial.</p>
+            </div>
+            <div class="reason-card fade-in">
+                <span class="reason-icon">❤️</span>
+                <h3>Tu Corazón</h3>
+                <p>Tienes la bondad más pura y la capacidad de amar que hace que mi corazón se detenga. Eres único, Adanary.</p>
+            </div>
+            <div class="reason-card fade-in">
+                <span class="reason-icon">🎭</span>
+                <h3>Tu Humor</h3>
+                <p>Me haces reír como nadie más, y cada momento contigo es una aventura llena de alegría y amor verdadero.</p>
+            </div>
+            <div class="reason-card fade-in">
+                <span class="reason-icon">🌟</span>
+                <h3>Tu Esencia</h3>
+                <p>Eres único, perfecto para mí, y no cambiaría ni un solo detalle de quien eres. Te amo exactamente así.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carta de Amor personalizada para Adanary -->
+    <section class="special-message">
+        <div class="message-container fade-in">
+            <div class="love-letter">
+                <h2>Mi Carta de Amor para Adanary</h2>
+                <p>Querido Adanary,</p>
+                <p>Hay momentos en la vida donde las palabras no son suficientes para expresar lo que siente el corazón. Este es uno de esos momentos. Quiero que sepas que cada día a tu lado es un regalo que valoro más que cualquier tesoro.</p>
+                <p>Has transformado mi vida de maneras que nunca imaginé posibles. Eres mi mejor amigo, mi confidente, mi apoyo incondicional y el amor de mi vida. Contigo he aprendido que el amor verdadero no es perfecto, pero es real, fuerte y eterno.</p>
+                <p>Cuando me abrazas como en esa foto del elevador, siento que el mundo se detiene. Cuando caminamos tomados de la mano bajo las estrellas, sé que estoy exactamente donde debo estar. Eres mi hogar, mi paz y mi mayor alegría.</p>
+                <p>Prometo seguir eligiéndote cada día, en los momentos buenos y en los difíciles. Prometo amarte no solo por quien eres, sino por quien me ayudas a ser.</p>
+                <p style="text-align: right; font-family: 'Dancing Script', cursive; font-size: 1.5rem; margin-top: 30px;">Con todo mi amor,<br>Para siempre tuya ❤️<br>Adanary, mi todo</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promesas para Adanary -->
+    <section class="promises-section">
+        <h2 class="section-title fade-in">Mis Promesas para Adanary</h2>
+        <div class="promise-item fade-in">
+            <div class="promise-number">01</div>
+            <div class="promise-text">Amarte incondicionalmente, incluso en los días difíciles y cuando todo parezca gris.</div>
+        </div>
+        <div class="promise-item fade-in">
+            <div class="promise-number">02</div>
+            <div class="promise-text">Respetarte, valorarte y nunca dar por sentado al hombre maravilloso que eres.</div>
+        </div>
+        <div class="promise-item fade-in">
+            <div class="promise-number">03</div>
+            <div class="promise-text">Apoyar tus sueños y estar a tu lado en cada paso de tu camino, como equipo.</div>
+        </div>
+        <div class="promise-item fade-in">
+            <div class="promise-number">04</div>
+            <div class="promise-text">Hacerte reír cada día y recordarte lo especial que eres con pequeños detalles de amor.</div>
+        </div>
+        <div class="promise-item fade-in">
+            <div class="promise-number">05</div>
+            <div class="promise-text">Construir juntos un futuro lleno de amor, aventuras y momentos inolvidables como los que ya vivimos.</div>
+        </div>
+    </section>
+
+    <!-- Galería de Momentos Especiales con las fotos reales -->
+    <section class="gallery-section">
+        <h2 class="section-title fade-in">Nuestros Momentos Especiales</h2>
+        <div class="photo-grid">
+            <div class="photo-item fade-in">
+                <img src="/mnt/kimi/upload/13005.jpg" alt="Adanary y yo en el elevador">
+                <div class="photo-caption">
+                    <p>Ese abrazo que lo dice todo... 🖤</p>
+                </div>
+            </div>
+            <div class="photo-item fade-in">
+                <img src="/mnt/kimi/upload/13028.jpg" alt="Adanary y yo juntos">
+                <div class="photo-caption">
+                    <p>Mi persona favorita ✨</p>
+                </div>
+            </div>
+            <div class="photo-item fade-in">
+                <img src="/mnt/kimi/upload/12964.jpg" alt="Nuestras manos entrelazadas">
+                <div class="photo-caption">
+                    <p>Siempre juntos, siempre tuyos 💕</p>
+                </div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 40px; opacity: 0.8; font-style: italic; font-size: 1.1rem;">
+            Cada foto es un recuerdo guardado en mi corazón... 
+        </p>
+    </section>
+
+    <!-- Sección Final -->
+    <section class="final-section">
+        <h2 class="section-title fade-in special-glow">¿Sabes cuánto te amo, Adanary?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">Haz clic en el botón para descubrirlo...</p>
+        <button class="love-button" onclick="showLove()">Descubrir 💝</button>
+    </section>
+
+    <!-- Modal Sorpresa -->
+    <div id="loveModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h2>Te Amo Infinitamente, Adanary</h2>
+            <p>Más allá de las palabras, más allá de la distancia, más allá del tiempo. Mi amor por ti es inmenso, incondicional y eterno. Eres la mejor parte de mi vida y siempre lo serás. Gracias por ser mi Adanary. 💕✨</p>
+            <button class="close-modal" onclick="closeModal()">Cerrar con Amor ❤️</button>
+        </div>
+    </div>
+
+    <script>
+        // Crear corazones flotantes
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            const hearts = ['❤️', '💖', '💕', '💗', '💓', '💝'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart-particle';
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                container.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 20000);
+            }, 300);
+        }
+
+        // Animación de scroll
+        function handleScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                if (rect.top < windowHeight * 0.85) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Mostrar modal de amor
+        function showLove() {
+            document.getElementById('loveModal').style.display = 'flex';
+            createExplosion();
+        }
+
+        // Cerrar modal
+        function closeModal(event) {
+            if (!event || event.target.id === 'loveModal' || event.target.className === 'close-modal') {
+                document.getElementById('loveModal').style.display = 'none';
+            }
+        }
+
+        // Efecto de explosión de corazones
+        function createExplosion() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '❤️';
+                    heart.style.position = 'fixed';
+                    heart.style.left = '50%';
+                    heart.style.top = '50%';
+                    heart.style.fontSize = '30px';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.zIndex = '1001';
+                    heart.style.transform = `translate(-50%, -50%)`;
+                    document.body.appendChild(heart);
+                    
+                    const angle = (Math.random() * 360) * (Math.PI / 180);
+                    const velocity = Math.random() * 300 + 100;
+                    const vx = Math.cos(angle) * velocity;
+                    const vy = Math.sin(angle) * velocity;
+                    
+                    let x = 0, y = 0;
+                    let opacity = 1;
+                    
+                    const animate = () => {
+                        x += vx * 0.02;
+                        y += vy * 0.02 + 2;
+                        opacity -= 0.02;
+                        heart.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+                        heart.style.opacity = opacity;
+                        
+                        if (opacity > 0) {
+                            requestAnimationFrame(animate);
+                        } else {
+                            heart.remove();
+                        }
+                    };
+                    animate();
+                }, i * 30);
+            }
+        }
+
+        // Inicializar
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', () => {
+            createHearts();
+            handleScroll();
+        });
+
+        // Efecto de parallax suave en el mouse
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            document.querySelectorAll('.reason-card').forEach((card, index) => {
+                const speed = (index + 1) * 5;
+                const xOffset = (window.innerWidth / 2 - e.clientX) / speed;
+                const yOffset = (window.innerHeight / 2 - e.clientY) / speed;
+                card.style.transform = `perspective(1000px) rotateY(${xOffset * 0.01}deg) rotateX(${yOffset * 0.01}deg)`;
+            });
+        });
+    </script>
+</body>
+</html>
